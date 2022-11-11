@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "550263105238",
+    "project_id": "passthepass-98bf6",
+    "storage_bucket": "passthepass-98bf6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550263105238:android:cc9d9d76e123513ac68b77",
+        "android_client_info": {
+          "package_name": "com.example.passthepass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550263105238-2n42ij4l1u2dis6tsdegksv7d0cc1374.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcEGEk188BbsuKjMpSoJuROeETmLGz_cc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550263105238-2n42ij4l1u2dis6tsdegksv7d0cc1374.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
