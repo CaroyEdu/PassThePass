@@ -3,9 +3,13 @@ Android Application using Java + Firebase
 
 # Android Studio Configuration
 
-Minimum SDK: API 21: Android 5.9 (Lollipop)
 
-# Hardware Used for Emulation
+Minimum SDK: Android 8.0 (Oreo)
+
+
+Hardware Used for Emulation
+
 
 Device: Nexus 5
-System Image: R (API Level 30)
+
+System Image: API Level 26
