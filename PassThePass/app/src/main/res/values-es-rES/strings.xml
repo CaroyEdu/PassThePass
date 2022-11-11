@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">PassThePass</string>
-    <string name="title_home">Mis Contraseñas</string>
-    <string name="title_dashboard">Contraseñas Compartidas</string>
-    <string name="title_notifications">Notificaciones</string>
-</resources>

@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">PassThePass</string>
-    <string name="title_home">My Passwords</string>
-    <string name="title_dashboard">Shared Passwords</string>
-    <string name="title_notifications">Notifications</string>
-</resources>
