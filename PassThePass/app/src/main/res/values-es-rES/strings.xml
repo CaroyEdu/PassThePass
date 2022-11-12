@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PassThePass</string>
+    <string name="tv_welcome">Bienvenido a PassThePass</string>
+    <string name="et_email">Correo Electrónico</string>
+    <string name="et_password">Contraseña</string>
+    <string name="button_login">Acceder</string>
+    <string name="login_failed">La combinación Correo/Contraseña es incorrecta</string>
+    <string name="et_empty">Los campos Correo/Contraseña no pueden estar vacíos</string>
+    <string name="login_success">Bienvenido!</string>
+    <string name="title_activity_ptphome">PTPHome</string>
+    <string name="title_my_passwords">Mis Contraseñas</string>
+    <string name="title_shared_passwords">Contraseñas Compartidas</string>
+    <string name="title_my_account">Mi Cuenta</string>
+</resources>

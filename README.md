@@ -1,5 +1,5 @@
 # PassThePass
-Android Application using Java + Firebase
+Android Application using Java + SQLite
 
 # Android Studio Configuration
 

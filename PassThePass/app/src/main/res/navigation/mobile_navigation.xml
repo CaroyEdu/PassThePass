@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_my_passwords">
+
+    <fragment
+        android:id="@+id/navigation_my_passwords"
+        android:name="com.example.passthepass.ui.my_passwords.MyPasswordsFragment"
+        android:label="@string/title_my_passwords"
+        tools:layout="@layout/fragment_my_passwords" />
+
+    <fragment
+        android:id="@+id/navigation_shared_passwords"
+        android:name="com.example.passthepass.ui.shared_passwords.SharedPasswordsFragment"
+        android:label="@string/title_shared_passwords"
+        tools:layout="@layout/fragment_shared_passwords" />
+
+    <fragment
+        android:id="@+id/navigation_my_account"
+        android:name="com.example.passthepass.ui.my_account.MyAccountFragment"
+        android:label="@string/title_my_account"
+        tools:layout="@layout/fragment_my_account" />
+</navigation>

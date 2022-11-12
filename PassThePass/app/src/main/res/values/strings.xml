@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PassThePass</string>
+    <string name="tv_welcome">Welcome to PassThePass</string>
+    <string name="et_email">Email</string>
+    <string name="et_password">Password</string>
+    <string name="button_login">Login</string>
+    <string name="login_failed">Email/Password combination is incorrect</string>
+    <string name="et_empty">Email or password can\'t be empty!</string>
+    <string name="login_success">Login Sucess!</string>
+    <string name="title_activity_ptphome">PTPHome</string>
+    <string name="title_my_passwords">My Passwords</string>
+    <string name="title_shared_passwords">Shared Passwords</string>
+    <string name="title_my_account">My Account</string>
+</resources>

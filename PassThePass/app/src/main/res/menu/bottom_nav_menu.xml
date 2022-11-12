@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_my_passwords"
+        android:icon="@drawable/keys"
+        android:title="@string/title_my_passwords" />
+
+    <item
+        android:id="@+id/navigation_shared_passwords"
+        android:icon="@drawable/share"
+        android:title="@string/title_shared_passwords" />
+
+    <item
+        android:id="@+id/navigation_my_account"
+        android:icon="@drawable/user"
+        android:title="@string/title_my_account" />
+
+</menu>
