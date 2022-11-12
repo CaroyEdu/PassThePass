@@ -1,7 +1,10 @@
 package com.example.passthepass;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
+import com.example.passthepass.ui.my_account.MyAccountFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +25,8 @@ public class PTPHome extends AppCompatActivity {
 
         binding = ActivityPtphomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Bundle bundle = getIntent().getExtras();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each

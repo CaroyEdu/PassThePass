@@ -7,9 +7,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.passthepass.PTPHome;
+import com.example.passthepass.R;
 import com.example.passthepass.databinding.FragmentMyAccountBinding;
 
 public class MyAccountFragment extends Fragment {
@@ -27,6 +30,12 @@ public class MyAccountFragment extends Fragment {
         final TextView textView = binding.textNotifications;
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstaceState){
+        TextView loggedAs = getView().findViewById(R.id.textViewLoggedAs);
+        loggedAs.setText("DEBUG: ");
     }
 
     @Override
