@@ -1,7 +1,5 @@
 package com.example.passthepass;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -14,10 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     // Atributos para manejar la BD
-    private UserHelper dbHelper;
+    private DBHelper dbHelper;
     private SQLiteDatabase db;
 
     // Atributos Login
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Inicio la db
-        dbHelper = new UserHelper(getApplicationContext(), "mydb.db");
+        dbHelper = new DBHelper(this);
         db = dbHelper.getWritableDatabase();
 
         email = findViewById(R.id.editTextEmail);
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("Range")
-    public void onClick(View view){
+    public void onClick(View view) {
         hideSoftKeyboard(email);
         hideSoftKeyboard(password);
 
@@ -52,23 +52,23 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.et_empty, Toast.LENGTH_LONG).show();
         } else {
             String[] columns = {
-                    UserContract.DbUser._ID,
-                    UserContract.DbUser.COLUMN_NAME_KEY,
-                    UserContract.DbUser.COLUMN_NAME_VAL
+                    DBContract.UserEntry._ID,
+                    DBContract.UserEntry.COLUMN_USER_EMAIL,
+                    DBContract.UserEntry.COLUMN_USER_PASS
             };
-            String where = UserContract.DbUser.COLUMN_NAME_KEY + " = ?";
-            String[] whereEmail = { e };
-            Cursor cursor = db.query(UserContract.DbUser.TABLE_NAME, columns, where, whereEmail, null, null, null);
+            String where = DBContract.UserEntry.COLUMN_USER_EMAIL + " = ?";
+            String[] whereEmail = {e};
+            Cursor cursor = db.query(DBContract.UserEntry.TABLE_USER, columns, where, whereEmail, null, null, null);
             String wherePassword = "";
             try {
                 while (cursor.moveToNext()) {
-                    wherePassword = cursor.getString(cursor.getColumnIndex(UserContract.DbUser.COLUMN_NAME_VAL));
+                    wherePassword = cursor.getString(cursor.getColumnIndex(DBContract.UserEntry.COLUMN_USER_PASS));
                 }
             } finally {
                 cursor.close();
             }
 
-            if(p.equals(wherePassword)){
+            if (p.equals(wherePassword)) {
                 Toast.makeText(this, R.string.login_success, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, PTPHome.class);
                 Bundle bundle = new Bundle();
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 bundle.putString("password", p);
                 intent.putExtras(bundle);
                 startActivity(intent);
-            }else{
+            } else {
                 Toast.makeText(this, R.string.login_failed, Toast.LENGTH_SHORT).show();
             }
         }
@@ -88,25 +88,25 @@ public class MainActivity extends AppCompatActivity {
         db.close();
     }
 
-    private void createAccounts(){
+    private void createAccounts() {
         // Creo un par de cuentas para probar la aplicación
         ContentValues values = new ContentValues();
-        values.put(UserContract.DbUser.COLUMN_NAME_KEY, "admin@ptp.com");
-        values.put(UserContract.DbUser.COLUMN_NAME_VAL, "1234");
-        db.insert(UserContract.DbUser.TABLE_NAME, null, values);
+        values.put(DBContract.UserEntry.COLUMN_USER_EMAIL, "admin@ptp.com");
+        values.put(DBContract.UserEntry.COLUMN_USER_PASS, "1234");
+        db.insert(DBContract.UserEntry.TABLE_USER, null, values);
 
-        values.put(UserContract.DbUser.COLUMN_NAME_KEY, "info@ptp.com");
-        values.put(UserContract.DbUser.COLUMN_NAME_VAL, "1234");
-        db.insert(UserContract.DbUser.TABLE_NAME, null, values);
+        values.put(DBContract.UserEntry.COLUMN_USER_EMAIL, "info@ptp.com");
+        values.put(DBContract.UserEntry.COLUMN_USER_PASS, "1234");
+        db.insert(DBContract.UserEntry.TABLE_USER, null, values);
     }
 
-    private void createPasswords(){
+    private void createPasswords() {
         // Creo un par de contraseñas para probar la aplicación
         ContentValues values = new ContentValues();
-        values.put(PasswordContract.DbPassword.COLUMN_NAME_KEY, "admin@ptp.com");
-        values.put(PasswordContract.DbPassword.COLUMN_NAME1, "Netflix");
-        values.put(PasswordContract.DbPassword.COLUMN_NAME2, "1234");
-        db.insert(PasswordContract.DbPassword.TABLE_NAME, null, values);
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_USER, "admin@ptp.com");
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "Netflix");
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "1234");
+        db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
     }
 
     // Esta función esconde el teclado
