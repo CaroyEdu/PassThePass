@@ -60,9 +60,11 @@ public class MainActivity extends AppCompatActivity {
             String[] whereEmail = {e};
             Cursor cursor = db.query(DBContract.UserEntry.TABLE_USER, columns, where, whereEmail, null, null, null);
             String wherePassword = "";
+            Integer userId = 0;
             try {
                 while (cursor.moveToNext()) {
                     wherePassword = cursor.getString(cursor.getColumnIndex(DBContract.UserEntry.COLUMN_USER_PASS));
+                    userId = cursor.getInt(cursor.getColumnIndex(DBContract.UserEntry._ID));
                 }
             } finally {
                 cursor.close();
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.login_success, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, PTPHome.class);
                 Bundle bundle = new Bundle();
+                bundle.putInt("id", userId);
                 bundle.putString("email", e);
                 bundle.putString("password", p);
                 intent.putExtras(bundle);
@@ -103,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     private void createPasswords() {
         // Creo un par de contraseñas para probar la aplicación
         ContentValues values = new ContentValues();
-        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_USER, "admin@ptp.com");
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_USER, "37");
         values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "Netflix");
         values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "1234");
         db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
