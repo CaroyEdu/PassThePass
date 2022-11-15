@@ -74,10 +74,17 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "Netflix");
         values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "1234");
+        values.put(DBContract.PasswordEntry.COLUMN_SHARED, "0");
         db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
 
         values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "Prime Video");
         values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "1234");
+        values.put(DBContract.PasswordEntry.COLUMN_SHARED, "0");
+        db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
+
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "SHARED NETFLIX");
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "1234");
+        values.put(DBContract.PasswordEntry.COLUMN_SHARED, "1");
         db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
     }
 
@@ -89,6 +96,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
         values.put(DBContract.UserPasswordEntry.COLUMN_USER_ID, "1");
         values.put(DBContract.UserPasswordEntry.COLUMN_PASSWORD_ID, "2");
+        db.insert(DBContract.UserPasswordEntry.TABLE_USERPASSWORD, null, values);
+
+        values.put(DBContract.UserPasswordEntry.COLUMN_USER_ID, "1");
+        values.put(DBContract.UserPasswordEntry.COLUMN_PASSWORD_ID, "3");
+        db.insert(DBContract.UserPasswordEntry.TABLE_USERPASSWORD, null, values);
+
+        values.put(DBContract.UserPasswordEntry.COLUMN_USER_ID, "2");
+        values.put(DBContract.UserPasswordEntry.COLUMN_PASSWORD_ID, "3");
         db.insert(DBContract.UserPasswordEntry.TABLE_USERPASSWORD, null, values);
     }
 

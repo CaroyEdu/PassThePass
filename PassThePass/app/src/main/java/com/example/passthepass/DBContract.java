@@ -28,13 +28,15 @@ public class DBContract {
         public static final String TABLE_PASSWORD = "password";
         public static final String COLUMN_PASSWORD_APP = "appName";
         public static final String COLUMN_PASSWORD_PASSWORD = "password";
+        public static final String COLUMN_SHARED = "shared";
 
 
         public static final String SQL_CREATE_PASSWORD =
                 "CREATE TABLE " + PasswordEntry.TABLE_PASSWORD + " (" +
                         PasswordEntry._ID + " INTEGER PRIMARY KEY," +
                         PasswordEntry.COLUMN_PASSWORD_APP + " TEXT," +
-                        PasswordEntry.COLUMN_PASSWORD_PASSWORD + " TEXT)";
+                        PasswordEntry.COLUMN_PASSWORD_PASSWORD + " TEXT," +
+                        PasswordEntry.COLUMN_SHARED + " INTEGER )";
 
         public static final String SQL_DELETE_PASSWORD =
                 "DROP TABLE IF EXISTS " + PasswordEntry.TABLE_PASSWORD;
