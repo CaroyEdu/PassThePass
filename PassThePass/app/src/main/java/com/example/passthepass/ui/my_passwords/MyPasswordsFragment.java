@@ -55,12 +55,6 @@ public class MyPasswordsFragment extends Fragment {
     public void llenarLista() {
         SQLiteDatabase db = new DBHelper(getContext()).getReadableDatabase();
 
-        String[] projection = {
-                DBContract.PasswordEntry._ID,
-                DBContract.PasswordEntry.COLUMN_PASSWORD_APP,
-                DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD
-        };
-
         Bundle bundle = getActivity().getIntent().getExtras();
 
         final String MY_QUERY = "SELECT * FROM " + DBContract.PasswordEntry.TABLE_PASSWORD
