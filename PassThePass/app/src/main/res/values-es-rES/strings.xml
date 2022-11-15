@@ -12,4 +12,8 @@
     <string name="title_my_passwords">Mis Contraseñas</string>
     <string name="title_shared_passwords">Contraseñas Compartidas</string>
     <string name="title_my_account">Mi Cuenta</string>
+    <string name="title_create_password">Añade tu Nueva Contraseña</string>
+    <string name="create_application_name">Nombre de la Aplicación</string>
+    <string name="create_application_password">Contraseña de la Aplicación</string>
+    <string name="create_button_add">Añadir</string>
 </resources>

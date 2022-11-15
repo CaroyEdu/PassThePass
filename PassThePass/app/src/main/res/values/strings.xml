@@ -11,4 +11,9 @@
     <string name="title_my_passwords">My Passwords</string>
     <string name="title_shared_passwords">Shared Passwords</string>
     <string name="title_my_account">My Account</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_create_password">Add New Password</string>
+    <string name="create_application_name">Application Name</string>
+    <string name="create_application_password">Application Password</string>
+    <string name="create_button_add">Add</string>
 </resources>
