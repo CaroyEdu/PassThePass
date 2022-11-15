@@ -60,7 +60,8 @@ public class MyPasswordsFragment extends Fragment {
         final String MY_QUERY = "SELECT * FROM " + DBContract.PasswordEntry.TABLE_PASSWORD
                 + " INNER JOIN " + DBContract.UserPasswordEntry.TABLE_USERPASSWORD
                 + " ON " + DBContract.PasswordEntry._ID + "=" + DBContract.UserPasswordEntry.COLUMN_PASSWORD_ID
-                + " WHERE " + DBContract.UserPasswordEntry.COLUMN_USER_ID + "=" + bundle.get("id").toString();
+                + " WHERE " + DBContract.UserPasswordEntry.COLUMN_USER_ID + "=" + bundle.get("id").toString()
+                + " AND " + DBContract.PasswordEntry.COLUMN_SHARED + "=0";
 
         Cursor cursor = db.rawQuery(MY_QUERY, new String[]{});
         try {
