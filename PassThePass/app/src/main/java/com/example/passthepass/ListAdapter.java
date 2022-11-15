@@ -1,8 +1,13 @@
 package com.example.passthepass;
 
+import static android.content.ContentValues.TAG;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,14 +40,28 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         return listPasswords.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView nameApp, password;
+        ImageButton imageButton;
 
         ViewHolder(View itemView) {
             super(itemView);
             nameApp = itemView.findViewById(R.id.appName);
             password = itemView.findViewById(R.id.password);
+            imageButton = itemView.findViewById(R.id.more);
+            imageButton.setOnClickListener(this);
         }
-        
+
+        @Override
+        public void onClick(View view) {
+            Log.d(TAG, "onClick: " + getAbsoluteAdapterPosition());
+            showPopupMenu(view);
+        }
+
+        private void showPopupMenu(View view) {
+            PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
+            popupMenu.inflate(R.menu.popup_menu);
+            popupMenu.show();
+        }
     }
 }

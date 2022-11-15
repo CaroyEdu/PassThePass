@@ -16,4 +16,7 @@
     <string name="create_application_name">Application Name</string>
     <string name="create_application_password">Application Password</string>
     <string name="create_button_add">Add</string>
+    <string name="popup_show_password">Show password</string>
+    <string name="popup_edit">Edit</string>
+    <string name="popup_delete">Delete</string>
 </resources>

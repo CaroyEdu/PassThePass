@@ -16,4 +16,7 @@
     <string name="create_application_name">Nombre de la Aplicación</string>
     <string name="create_application_password">Contraseña de la Aplicación</string>
     <string name="create_button_add">Añadir</string>
+    <string name="popup_show_password">Mostrar contraseña</string>
+    <string name="popup_edit">Editar</string>
+    <string name="popup_delete">Eliminar</string>
 </resources>
