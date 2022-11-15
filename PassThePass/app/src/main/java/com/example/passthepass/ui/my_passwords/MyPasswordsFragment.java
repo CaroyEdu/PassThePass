@@ -57,15 +57,18 @@ public class MyPasswordsFragment extends Fragment {
 
         String[] projection = {
                 DBContract.PasswordEntry._ID,
-                DBContract.PasswordEntry.COLUMN_PASSWORD_USER,
                 DBContract.PasswordEntry.COLUMN_PASSWORD_APP,
                 DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD
         };
 
-        String selection = DBContract.PasswordEntry.COLUMN_PASSWORD_USER + " = ?";
         Bundle bundle = getActivity().getIntent().getExtras();
-        String[] selectionArgs = {bundle.get("id").toString()};
-        Cursor cursor = db.query(DBContract.PasswordEntry.TABLE_PASSWORD, projection, selection, selectionArgs, null, null, null);
+
+        final String MY_QUERY = "SELECT * FROM " + DBContract.PasswordEntry.TABLE_PASSWORD
+                + " INNER JOIN " + DBContract.UserPasswordEntry.TABLE_USERPASSWORD
+                + " ON " + DBContract.PasswordEntry._ID + "=" + DBContract.UserPasswordEntry.COLUMN_PASSWORD_ID
+                + " WHERE " + DBContract.UserPasswordEntry.COLUMN_USER_ID + "=" + bundle.get("id").toString();
+
+        Cursor cursor = db.rawQuery(MY_QUERY, new String[]{});
         try {
             while (cursor.moveToNext()) {
                 String appName = cursor.getString(cursor.getColumnIndex(DBContract.PasswordEntry.COLUMN_PASSWORD_APP));
@@ -76,12 +79,6 @@ public class MyPasswordsFragment extends Fragment {
         } finally {
             cursor.close();
         }
-
-     /*   passwordList.add(new ListPassword("Netflix", "1234"));
-        passwordList.add(new ListPassword("Movistar", "movistar12"));
-        passwordList.add(new ListPassword("Wifi", "abcdefghi"));
-        passwordList.add(new ListPassword("UMA", "aprobar88"));
-        passwordList.add(new ListPassword("HBO", "1234"));*/
     }
 
 

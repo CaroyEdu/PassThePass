@@ -26,7 +26,6 @@ public class DBContract {
     //PASSWORD TABLE
     public static class PasswordEntry implements BaseColumns {
         public static final String TABLE_PASSWORD = "password";
-        public static final String COLUMN_PASSWORD_USER = "idUser";
         public static final String COLUMN_PASSWORD_APP = "appName";
         public static final String COLUMN_PASSWORD_PASSWORD = "password";
 
@@ -34,11 +33,26 @@ public class DBContract {
         public static final String SQL_CREATE_PASSWORD =
                 "CREATE TABLE " + PasswordEntry.TABLE_PASSWORD + " (" +
                         PasswordEntry._ID + " INTEGER PRIMARY KEY," +
-                        PasswordEntry.COLUMN_PASSWORD_USER + " TEXT," +
                         PasswordEntry.COLUMN_PASSWORD_APP + " TEXT," +
                         PasswordEntry.COLUMN_PASSWORD_PASSWORD + " TEXT)";
 
         public static final String SQL_DELETE_PASSWORD =
                 "DROP TABLE IF EXISTS " + PasswordEntry.TABLE_PASSWORD;
+    }
+
+    //USERPASSWORD TABLE
+    public static class UserPasswordEntry implements BaseColumns {
+        public static final String TABLE_USERPASSWORD = "userpassword";
+        public static final String COLUMN_USER_ID = "idUser";
+        public static final String COLUMN_PASSWORD_ID = "idPassword";
+
+        public static final String SQL_CREATE_USERPASSWORD =
+                "CREATE TABLE " + UserPasswordEntry.TABLE_USERPASSWORD + " (" +
+                        UserPasswordEntry.COLUMN_USER_ID + " INTEGER," +
+                        UserPasswordEntry.COLUMN_PASSWORD_ID + " INTEGER, PRIMARY KEY (" +
+                        UserPasswordEntry.COLUMN_USER_ID + ", " + UserPasswordEntry.COLUMN_PASSWORD_ID + "));";
+
+        public static final String SQL_DELETE_USERPASSWORD =
+                "DROP TABLE IF EXISTS " + UserPasswordEntry.TABLE_USERPASSWORD;
     }
 }

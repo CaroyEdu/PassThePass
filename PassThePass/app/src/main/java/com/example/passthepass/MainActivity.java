@@ -36,9 +36,6 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.editTextEmail);
         password = findViewById(R.id.editTextPassword);
         login = findViewById(R.id.buttonLogin);
-
-        createAccounts();
-        createPasswords();
     }
 
     @SuppressLint("Range")
@@ -89,27 +86,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         db.close();
-    }
-
-    private void createAccounts() {
-        // Creo un par de cuentas para probar la aplicación
-        ContentValues values = new ContentValues();
-        values.put(DBContract.UserEntry.COLUMN_USER_EMAIL, "admin@ptp.com");
-        values.put(DBContract.UserEntry.COLUMN_USER_PASS, "1234");
-        db.insert(DBContract.UserEntry.TABLE_USER, null, values);
-
-        values.put(DBContract.UserEntry.COLUMN_USER_EMAIL, "info@ptp.com");
-        values.put(DBContract.UserEntry.COLUMN_USER_PASS, "1234");
-        db.insert(DBContract.UserEntry.TABLE_USER, null, values);
-    }
-
-    private void createPasswords() {
-        // Creo un par de contraseñas para probar la aplicación
-        ContentValues values = new ContentValues();
-        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_USER, "37");
-        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "Netflix");
-        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "1234");
-        db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
     }
 
     // Esta función esconde el teclado
