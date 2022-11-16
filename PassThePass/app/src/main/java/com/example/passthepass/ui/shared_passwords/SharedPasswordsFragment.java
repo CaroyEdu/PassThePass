@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +18,6 @@ import com.example.passthepass.DBHelper;
 import com.example.passthepass.ListAdapter;
 import com.example.passthepass.ListPassword;
 import com.example.passthepass.R;
-import com.example.passthepass.databinding.FragmentMyPasswordsBinding;
 import com.example.passthepass.databinding.FragmentSharedPasswordsBinding;
 
 import java.util.ArrayList;
@@ -69,10 +66,11 @@ public class SharedPasswordsFragment extends Fragment {
         Cursor cursor = db.rawQuery(MY_QUERY, new String[]{});
         try {
             while (cursor.moveToNext()) {
+                String idPassword = cursor.getString(cursor.getColumnIndex(DBContract.PasswordEntry._ID));
                 String appName = cursor.getString(cursor.getColumnIndex(DBContract.PasswordEntry.COLUMN_PASSWORD_APP));
                 String password = cursor.getString(cursor.getColumnIndex(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD));
 
-                passwordList.add(new ListPassword(appName, password));
+                passwordList.add(new ListPassword(idPassword, appName, password));
             }
         } finally {
             cursor.close();

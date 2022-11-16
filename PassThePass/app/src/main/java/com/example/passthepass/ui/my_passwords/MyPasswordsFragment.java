@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,7 +34,7 @@ public class MyPasswordsFragment extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_my_passwords, container, false);
 
         passwordList = new ArrayList<>();
-        recyclerView = (RecyclerView) vista.findViewById(R.id.listRecyclerview);
+        recyclerView = vista.findViewById(R.id.listRecyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         llenarLista();
@@ -67,10 +66,11 @@ public class MyPasswordsFragment extends Fragment {
         Cursor cursor = db.rawQuery(MY_QUERY, new String[]{});
         try {
             while (cursor.moveToNext()) {
+                String idPassword = cursor.getString(cursor.getColumnIndex(DBContract.PasswordEntry._ID));
                 String appName = cursor.getString(cursor.getColumnIndex(DBContract.PasswordEntry.COLUMN_PASSWORD_APP));
                 String password = cursor.getString(cursor.getColumnIndex(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD));
 
-                passwordList.add(new ListPassword(appName, password));
+                passwordList.add(new ListPassword(idPassword, appName, password));
             }
         } finally {
             cursor.close();
