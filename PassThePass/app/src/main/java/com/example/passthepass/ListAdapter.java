@@ -1,5 +1,6 @@
 package com.example.passthepass;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,6 +40,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         return listPasswords.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
         TextView nameApp, password;
         ImageButton imageButton;
@@ -64,13 +67,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
-            ListPassword selected = listPasswords.get(getAbsoluteAdapterPosition());
+            int position = getAbsoluteAdapterPosition();
+            ListPassword selected = listPasswords.get(position);
+            SQLiteDatabase db = new DBHelper(itemView.getContext()).getWritableDatabase();
             switch (menuItem.getItemId()) {
                 case R.id.action_popup_show:
                     return true;
                 case R.id.action_popup_edit:
                     return true;
                 case R.id.action_popup_delete:
+                    db.delete(DBContract.PasswordEntry.TABLE_PASSWORD, DBContract.PasswordEntry._ID + "=?", new String[]{selected.getIdPassword()});
+                    listPasswords.remove(position);
+                    notifyItemRemoved(position);
+                    Toast.makeText(itemView.getContext(), R.string.toast_delete, Toast.LENGTH_SHORT).show();
                     return true;
                 default:
                     return false;

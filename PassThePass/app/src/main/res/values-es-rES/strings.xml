@@ -19,4 +19,5 @@
     <string name="popup_show_password">Mostrar contraseña</string>
     <string name="popup_edit">Editar</string>
     <string name="popup_delete">Eliminar</string>
+    <string name="toast_delete">La contraseña se ha eliminado correctamente</string>
 </resources>
