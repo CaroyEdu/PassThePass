@@ -19,5 +19,9 @@
     <string name="popup_show_password">Mostrar contraseña</string>
     <string name="popup_edit">Editar</string>
     <string name="popup_delete">Eliminar</string>
+<<<<<<< Updated upstream
     <string name="toast_delete">La contraseña se ha eliminado correctamente</string>
+=======
+    <string name="create_application_succes">Aplicación Añadida!</string>
+>>>>>>> Stashed changes
 </resources>
