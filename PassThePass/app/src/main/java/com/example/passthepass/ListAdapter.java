@@ -1,6 +1,8 @@
 package com.example.passthepass;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,6 +46,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
         TextView nameApp, password;
         ImageButton imageButton;
+        Bundle bundle;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -74,6 +77,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 case R.id.action_popup_show:
                     return true;
                 case R.id.action_popup_edit:
+                    Intent intent = new Intent(itemView.getContext(), UpdatePassword.class);
+                    bundle = new Bundle();
+                    bundle.putString("idPassword", selected.getIdPassword());
+                    bundle.putString("nameApp", selected.getNameApp());
+                    bundle.putString("password", selected.getPassword());
+                    intent.putExtras(bundle);
+                    itemView.getContext().startActivity(intent);
                     return true;
                 case R.id.action_popup_delete:
                     db.delete(DBContract.PasswordEntry.TABLE_PASSWORD, DBContract.PasswordEntry._ID + "=?", new String[]{selected.getIdPassword()});

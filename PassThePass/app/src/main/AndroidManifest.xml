@@ -27,6 +27,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".UpdatePassword"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".PTPHome"
             android:exported="false"
             android:label="@string/title_activity_ptphome" />

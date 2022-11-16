@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreatePassword extends AppCompatActivity {
+public class UpdatePassword extends AppCompatActivity {
 
     private EditText editTextAppName, editTextAppPassword;
     private Bundle bundle;
@@ -18,33 +18,29 @@ public class CreatePassword extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_password);
+        setContentView(R.layout.activity_update_password);
         bundle = getIntent().getExtras();
+        editTextAppName = findViewById(R.id.editAppName);
+        editTextAppName.setText(bundle.get("nameApp").toString());
+        editTextAppPassword = findViewById(R.id.editPassword);
+        editTextAppPassword.setText(bundle.get("password").toString());
     }
 
     public void onClick(View view) {
-        addPasswordInDatabase();
-        Toast.makeText(this, R.string.create_application_succes, Toast.LENGTH_SHORT).show();
+        editPasswordInDatabase();
+        Toast.makeText(this, R.string.update_password_success, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, PTPHome.class);
-        intent.putExtras(bundle);
         startActivity(intent);
     }
 
-    private void addPasswordInDatabase() {
+    public void editPasswordInDatabase() {
         SQLiteDatabase db = new DBHelper(this).getWritableDatabase();
-
-        editTextAppName = findViewById(R.id.editAppName);
-        editTextAppPassword = findViewById(R.id.editPassword);
 
         ContentValues values = new ContentValues();
         values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, editTextAppName.getText().toString());
         values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, editTextAppPassword.getText().toString());
-        values.put(DBContract.PasswordEntry.COLUMN_SHARED, "0");
-        long newRowId = db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
 
-        ContentValues values2 = new ContentValues();
-        values2.put(DBContract.UserPasswordEntry.COLUMN_USER_ID, bundle.get("id").toString());
-        values2.put(DBContract.UserPasswordEntry.COLUMN_PASSWORD_ID, String.valueOf(newRowId));
-        db.insert(DBContract.UserPasswordEntry.TABLE_USERPASSWORD, null, values2);
+        db.update(DBContract.PasswordEntry.TABLE_PASSWORD, values, DBContract.PasswordEntry._ID + " =?", new String[]{bundle.get("idPassword").toString()});
     }
+
 }

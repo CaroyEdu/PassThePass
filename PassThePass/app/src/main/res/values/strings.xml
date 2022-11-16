@@ -26,4 +26,6 @@
     <string name="create_application_failed_not_your_email">You cannot introduce your own email!</string>
     <string name="create_application_failed_required">You need to fill every text!</string>
     <string name="button_logout">Logout</string>
+    <string name="button_update">Update</string>
+    <string name="update_password_success">Password updated successfully</string>
 </resources>

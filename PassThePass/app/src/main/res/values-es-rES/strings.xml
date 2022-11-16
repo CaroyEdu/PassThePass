@@ -26,4 +26,6 @@
     <string name="create_application_failed_not_your_email">No puedes introducir tu propio correo electrónico!</string>
     <string name="create_application_failed_required">Debes de rellenar todos los campos</string>
     <string name="button_logout">Cerrar sesión</string>
+    <string name="button_update">Actualizar</string>
+    <string name="update_password_success">Contraseña correctamente actualizada</string>
 </resources>
