@@ -16,7 +16,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class PTPHome extends AppCompatActivity {
 
     private ActivityPtphomeBinding binding;
-    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +24,11 @@ public class PTPHome extends AppCompatActivity {
         binding = ActivityPtphomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        bundle = getIntent().getExtras();
+        if(SaveSharedPreference.getUser()==null){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_my_passwords, R.id.navigation_shared_passwords, R.id.navigation_my_account)
                 .build();
@@ -39,19 +38,18 @@ public class PTPHome extends AppCompatActivity {
     }
 
     public void logout(View view) {
+        SaveSharedPreference.setUser(null);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     public void onClickCreate(View view) {
         Intent intent = new Intent(this, CreatePassword.class);
-        intent.putExtras(bundle);
         startActivity(intent);
     }
 
     public void onClickCreateShared(View view) {
         Intent intent = new Intent(this, CreatePasswordShared.class);
-        intent.putExtras(bundle);
         startActivity(intent);
     }
 

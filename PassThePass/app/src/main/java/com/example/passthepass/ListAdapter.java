@@ -34,7 +34,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ListAdapter.ViewHolder holder, int position) {
         holder.nameApp.setText(listPasswords.get(position).getNameApp());
-        holder.password.setText(listPasswords.get(position).getPassword());
+        //holder.password.setText(listPasswords.get(position).getPassword());
+        holder.password.setText("******");
     }
 
     @Override
@@ -75,6 +76,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             SQLiteDatabase db = new DBHelper(itemView.getContext()).getWritableDatabase();
             switch (menuItem.getItemId()) {
                 case R.id.action_popup_show:
+                    password.setText(selected.password);
                     return true;
                 case R.id.action_popup_edit:
                     Intent intent = new Intent(itemView.getContext(), UpdatePassword.class);
@@ -87,6 +89,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                     return true;
                 case R.id.action_popup_delete:
                     db.delete(DBContract.PasswordEntry.TABLE_PASSWORD, DBContract.PasswordEntry._ID + "=?", new String[]{selected.getIdPassword()});
+                    db.delete(DBContract.UserPasswordEntry.TABLE_USERPASSWORD, DBContract.UserPasswordEntry.COLUMN_PASSWORD_ID + "=?", new String[]{selected.getIdPassword()});
                     listPasswords.remove(position);
                     notifyItemRemoved(position);
                     Toast.makeText(itemView.getContext(), R.string.toast_delete, Toast.LENGTH_SHORT).show();

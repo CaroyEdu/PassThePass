@@ -69,11 +69,7 @@ public class MainActivity extends AppCompatActivity {
             if (p.equals(wherePassword)) {
                 Toast.makeText(this, R.string.login_success, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, PTPHome.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", userId);
-                bundle.putString("email", e);
-                bundle.putString("password", p);
-                intent.putExtras(bundle);
+                SaveSharedPreference.setUser(new User(userId, e, p));
                 startActivity(intent);
             } else {
                 Toast.makeText(this, R.string.login_failed, Toast.LENGTH_SHORT).show();

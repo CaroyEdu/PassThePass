@@ -15,13 +15,19 @@ import android.widget.Toast;
 public class CreatePasswordShared extends AppCompatActivity {
 
     private EditText editTextAppNameShared, editTextAppPasswordShare, editTextUserEmail;
-    private Bundle bundle;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_password_shared);
-        bundle = getIntent().getExtras();
+
+        if(SaveSharedPreference.getUser()==null){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else{
+            user = SaveSharedPreference.getUser();
+        }
     }
 
     public void onClick(View view){
@@ -51,7 +57,7 @@ public class CreatePasswordShared extends AppCompatActivity {
             cursor.close();
         }
 
-        if(idUser.equals(bundle.get("id").toString())){
+        if(idUser.equals(String.valueOf(user.getId()))){
             Toast.makeText(this, R.string.create_application_failed_not_your_email, Toast.LENGTH_SHORT).show();
         } else if(editTextAppNameShared.getText().toString().isEmpty() || editTextAppPasswordShare.getText().toString().isEmpty()){
             Toast.makeText(this, R.string.create_application_failed_required, Toast.LENGTH_SHORT).show();
@@ -63,7 +69,7 @@ public class CreatePasswordShared extends AppCompatActivity {
             long newRowId = db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
 
             ContentValues values2 = new ContentValues();
-            values2.put(DBContract.UserPasswordEntry.COLUMN_USER_ID, bundle.get("id").toString());
+            values2.put(DBContract.UserPasswordEntry.COLUMN_USER_ID, user.getId());
             values2.put(DBContract.UserPasswordEntry.COLUMN_PASSWORD_ID, String.valueOf(newRowId));
             db.insert(DBContract.UserPasswordEntry.TABLE_USERPASSWORD, null, values2);
 
@@ -73,7 +79,6 @@ public class CreatePasswordShared extends AppCompatActivity {
             db.insert(DBContract.UserPasswordEntry.TABLE_USERPASSWORD, null, values3);
             Toast.makeText(this, R.string.create_application_succes, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, PTPHome.class);
-            intent.putExtras(bundle);
             startActivity(intent);
         }
         else{
