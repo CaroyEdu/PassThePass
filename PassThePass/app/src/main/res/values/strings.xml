@@ -5,8 +5,8 @@
     <string name="et_password">Password</string>
     <string name="button_login">Login</string>
     <string name="login_failed">Email/Password combination is incorrect</string>
-    <string name="et_empty">Email or password can\'t be empty!</string>
-    <string name="login_success">Login Sucess!</string>
+    <string name="et_empty">Fields can\'t be empty</string>
+    <string name="login_success">Welcome to Pass The Pass!</string>
     <string name="title_activity_ptphome">PTPHome</string>
     <string name="title_my_passwords">My Passwords</string>
     <string name="title_shared_passwords">Shared Passwords</string>
@@ -20,11 +20,11 @@
     <string name="popup_edit">Edit</string>
     <string name="popup_delete">Delete</string>
     <string name="toast_delete">The password has been removed successfully</string>
-    <string name="create_application_succes">Application Added!</string>
+    <string name="create_application_succes">Application Added</string>
     <string name="create_application_user_email">User Email</string>
-    <string name="create_application_failed_user_not_found">User not found!</string>
+    <string name="create_application_failed_user_not_found">User not found</string>
     <string name="create_application_failed_not_your_email">You cannot introduce your own email!</string>
-    <string name="create_application_failed_required">You need to fill every text!</string>
+    <string name="create_application_failed_required">You need to fill every field</string>
     <string name="button_logout">Logout</string>
     <string name="button_update">Update</string>
     <string name="update_password_success">Password updated successfully</string>

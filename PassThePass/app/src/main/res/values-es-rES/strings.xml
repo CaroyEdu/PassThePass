@@ -5,9 +5,9 @@
     <string name="et_email">Correo Electrónico</string>
     <string name="et_password">Contraseña</string>
     <string name="button_login">Acceder</string>
-    <string name="login_failed">La combinación Correo/Contraseña es incorrecta</string>
-    <string name="et_empty">Los campos Correo/Contraseña no pueden estar vacíos</string>
-    <string name="login_success">Bienvenido!</string>
+    <string name="login_failed">La combinación es incorrecta</string>
+    <string name="et_empty">Debe rellenar todos los campos de texto</string>
+    <string name="login_success">Bienvenido a Pass The Pass!</string>
     <string name="title_activity_ptphome">PTPHome</string>
     <string name="title_my_passwords">Mis Contraseñas</string>
     <string name="title_shared_passwords">Contraseñas Compartidas</string>
@@ -20,9 +20,9 @@
     <string name="popup_edit">Editar</string>
     <string name="popup_delete">Eliminar</string>
     <string name="toast_delete">La contraseña se ha eliminado correctamente</string>
-    <string name="create_application_succes">Aplicación Añadida!</string>
+    <string name="create_application_succes">Aplicación añadida</string>
     <string name="create_application_user_email">Correo del Usuario</string>
-    <string name="create_application_failed_user_not_found">No se ha encontrado a ningún usuario con ese correo!</string>
+    <string name="create_application_failed_user_not_found">No se ha encontrado a ningún usuario con ese correo</string>
     <string name="create_application_failed_not_your_email">No puedes introducir tu propio correo electrónico!</string>
     <string name="create_application_failed_required">Debes de rellenar todos los campos</string>
     <string name="button_logout">Cerrar sesión</string>
