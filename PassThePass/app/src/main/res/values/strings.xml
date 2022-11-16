@@ -21,4 +21,8 @@
     <string name="popup_delete">Delete</string>
     <string name="toast_delete">The password has been removed successfully</string>
     <string name="create_application_succes">Application Added!</string>
+    <string name="create_application_user_email">User Email</string>
+    <string name="create_application_failed_user_not_found">User not found!</string>
+    <string name="create_application_failed_not_your_email">You cannot introduce your own email!</string>
+    <string name="create_application_failed_required">You need to fill every text!</string>
 </resources>

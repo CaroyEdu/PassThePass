@@ -48,8 +48,19 @@ public class PTPHome extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    public void logout(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     public void onClickCreate(View view){
         Intent intent = new Intent(this, CreatePassword.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    public void onClickCreateShared(View view){
+        Intent intent = new Intent(this, CreatePasswordShared.class);
         intent.putExtras(bundle);
         startActivity(intent);
     }

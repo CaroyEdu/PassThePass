@@ -31,10 +31,10 @@ public class SharedPasswordsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View vista = inflater.inflate(R.layout.fragment_my_passwords, container, false);
+        View vista = inflater.inflate(R.layout.fragment_shared_passwords, container, false);
 
         passwordList = new ArrayList<>();
-        recyclerView = (RecyclerView) vista.findViewById(R.id.listRecyclerview);
+        recyclerView = (RecyclerView) vista.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         llenarLista();
