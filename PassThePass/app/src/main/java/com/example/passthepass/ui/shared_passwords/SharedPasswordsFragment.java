@@ -18,7 +18,6 @@ import com.example.passthepass.DBHelper;
 import com.example.passthepass.ListAdapter;
 import com.example.passthepass.ListPassword;
 import com.example.passthepass.R;
-import com.example.passthepass.databinding.FragmentSharedPasswordsBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,14 +26,13 @@ public class SharedPasswordsFragment extends Fragment {
 
     private List<ListPassword> passwordList;
     RecyclerView recyclerView;
-    private FragmentSharedPasswordsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_shared_passwords, container, false);
 
         passwordList = new ArrayList<>();
-        recyclerView = (RecyclerView) vista.findViewById(R.id.recyclerView);
+        recyclerView = vista.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         llenarLista();
@@ -48,7 +46,6 @@ public class SharedPasswordsFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
     }
 
     @SuppressLint("Range")

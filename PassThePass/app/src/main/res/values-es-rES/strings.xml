@@ -25,4 +25,5 @@
     <string name="create_application_failed_user_not_found">No se ha encontrado a ningún usuario con ese correo!</string>
     <string name="create_application_failed_not_your_email">No puedes introducir tu propio correo electrónico!</string>
     <string name="create_application_failed_required">Debes de rellenar todos los campos</string>
+    <string name="button_logout">Cerrar sesión</string>
 </resources>

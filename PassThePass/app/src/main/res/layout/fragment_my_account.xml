@@ -7,10 +7,12 @@
     tools:context=".ui.my_account.MyAccountFragment">
 
     <TextView
-        android:id="@+id/textViewLoggedAs"
+        android:id="@+id/userEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/buttonLogout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -24,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="300dp"
         android:onClick="logout"
-        android:text="Button"
+        android:text="@string/button_logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
