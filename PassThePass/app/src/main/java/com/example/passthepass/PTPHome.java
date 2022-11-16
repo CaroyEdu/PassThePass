@@ -1,27 +1,17 @@
 package com.example.passthepass;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import com.example.passthepass.ui.my_account.MyAccountFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.passthepass.databinding.ActivityPtphomeBinding;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class PTPHome extends AppCompatActivity {
 
@@ -48,18 +38,18 @@ public class PTPHome extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-    public void logout(View view){
+    public void logout(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void onClickCreate(View view){
+    public void onClickCreate(View view) {
         Intent intent = new Intent(this, CreatePassword.class);
         intent.putExtras(bundle);
         startActivity(intent);
     }
 
-    public void onClickCreateShared(View view){
+    public void onClickCreateShared(View view) {
         Intent intent = new Intent(this, CreatePasswordShared.class);
         intent.putExtras(bundle);
         startActivity(intent);
