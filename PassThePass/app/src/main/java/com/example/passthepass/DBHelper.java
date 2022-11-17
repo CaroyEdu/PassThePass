@@ -72,18 +72,18 @@ public class DBHelper extends SQLiteOpenHelper {
     private void createPasswords(SQLiteDatabase db) {
         // Creo un par de contraseñas para probar la aplicación
         ContentValues values = new ContentValues();
-        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "Netflix");
-        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "1234");
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "Facebook");
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "unvi3j0");
         values.put(DBContract.PasswordEntry.COLUMN_SHARED, "0");
         db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
 
         values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "Prime Video");
-        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "1234");
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "pr1m3v1d30");
         values.put(DBContract.PasswordEntry.COLUMN_SHARED, "0");
         db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
 
-        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "SHARED NETFLIX");
-        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "1234");
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, "Netflix");
+        values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, "netfl1xcompartid0");
         values.put(DBContract.PasswordEntry.COLUMN_SHARED, "1");
         db.insert(DBContract.PasswordEntry.TABLE_PASSWORD, null, values);
     }

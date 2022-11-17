@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         holder.nameApp.setText(listPasswords.get(position).getNameApp());
         //holder.password.setText(listPasswords.get(position).getPassword());
         holder.password.setText("******");
+        if(listPasswords.get(position).getNameApp().equals("Netflix")){
+            holder.imageView.setImageResource(R.drawable.netflix);
+        }else if(listPasswords.get(position).getNameApp().equals("Youtube")){
+            holder.imageView.setImageResource(R.drawable.youtube);
+        } else if(listPasswords.get(position).getNameApp().equals("Prime Video")){
+            holder.imageView.setImageResource(R.drawable.primevideo);
+        } else if(listPasswords.get(position).getNameApp().equals("Facebook")){
+            holder.imageView.setImageResource(R.drawable.facebook);
+        } else if(listPasswords.get(position).getNameApp().equals("Twitter")){
+            holder.imageView.setImageResource(R.drawable.twitter);
+        } else if(listPasswords.get(position).getNameApp().equals("Snapchat")){
+            holder.imageView.setImageResource(R.drawable.snapchat);
+        }
     }
 
     @Override
@@ -47,6 +61,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
         TextView nameApp, password;
         ImageButton imageButton;
+        ImageView imageView;
         Bundle bundle;
 
         ViewHolder(View itemView) {
@@ -54,6 +69,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             nameApp = itemView.findViewById(R.id.appName);
             password = itemView.findViewById(R.id.password);
             imageButton = itemView.findViewById(R.id.more);
+            imageView = itemView.findViewById(R.id.iconImageView);
             imageButton.setOnClickListener(this);
         }
 
