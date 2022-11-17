@@ -28,4 +28,6 @@
     <string name="button_logout">Logout</string>
     <string name="button_update">Update</string>
     <string name="update_password_success">Password updated successfully</string>
+    <string name="text_update_password">Password modification</string>
+    <string name="text_new_password">New password</string>
 </resources>

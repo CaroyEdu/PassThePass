@@ -28,4 +28,6 @@
     <string name="button_logout">Cerrar sesión</string>
     <string name="button_update">Actualizar</string>
     <string name="update_password_success">Contraseña correctamente actualizada</string>
+    <string name="text_update_password">Modificación de contraseña</string>
+    <string name="text_new_password">Nueva contraseña</string>
 </resources>
