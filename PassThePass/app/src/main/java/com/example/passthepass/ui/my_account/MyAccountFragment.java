@@ -26,10 +26,10 @@ public class MyAccountFragment extends Fragment {
 
         View vista = inflater.inflate(R.layout.fragment_my_account, container, false);
 
-        if(SaveSharedPreference.getUser()==null){
+        if (SaveSharedPreference.getUser() == null) {
             Intent intent = new Intent(getContext(), MainActivity.class);
             startActivity(intent);
-        }else{
+        } else {
             user = SaveSharedPreference.getUser();
         }
 

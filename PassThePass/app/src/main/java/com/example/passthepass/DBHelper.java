@@ -27,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if(databaseExists()){
+        if (databaseExists()) {
             db.execSQL(DBContract.UserEntry.SQL_DELETE_USER);
             db.execSQL(DBContract.PasswordEntry.SQL_DELETE_PASSWORD);
             db.execSQL(DBContract.UserPasswordEntry.SQL_DELETE_USERPASSWORD);
@@ -48,9 +48,9 @@ public class DBHelper extends SQLiteOpenHelper {
         } catch (SQLiteException e) {
             // database doesn't exist yet.
         }
-        if(checkDB == null){
+        if (checkDB == null) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }

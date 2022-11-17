@@ -36,10 +36,10 @@ public class SharedPasswordsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_shared_passwords, container, false);
 
-        if(SaveSharedPreference.getUser()==null){
+        if (SaveSharedPreference.getUser() == null) {
             Intent intent = new Intent(getContext(), MainActivity.class);
             startActivity(intent);
-        }else{
+        } else {
             user = SaveSharedPreference.getUser();
         }
 

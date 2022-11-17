@@ -33,7 +33,7 @@ public class UpdatePassword extends AppCompatActivity {
     public void editPasswordInDatabase() {
         SQLiteDatabase db = new DBHelper(this).getWritableDatabase();
 
-        if(editTextAppName.getText().toString().isEmpty() || editTextAppPassword.getText().toString().isEmpty()){
+        if (editTextAppName.getText().toString().isEmpty() || editTextAppPassword.getText().toString().isEmpty()) {
             Toast.makeText(this, R.string.create_application_failed_required, Toast.LENGTH_SHORT).show();
         } else {
             ContentValues values = new ContentValues();

@@ -11,7 +11,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.passthepass.databinding.ActivityPtphomeBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class PTPHome extends AppCompatActivity {
 
@@ -24,7 +23,7 @@ public class PTPHome extends AppCompatActivity {
         binding = ActivityPtphomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        if(SaveSharedPreference.getUser()==null){
+        if (SaveSharedPreference.getUser() == null) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

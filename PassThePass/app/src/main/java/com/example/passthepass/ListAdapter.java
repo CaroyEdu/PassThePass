@@ -35,20 +35,21 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ListAdapter.ViewHolder holder, int position) {
         holder.nameApp.setText(listPasswords.get(position).getNameApp());
-        //holder.password.setText(listPasswords.get(position).getPassword());
         holder.password.setText("******");
-        if(listPasswords.get(position).getNameApp().equals("Netflix")){
+        if (listPasswords.get(position).getNameApp().equalsIgnoreCase("Netflix")) {
             holder.imageView.setImageResource(R.drawable.netflix);
-        }else if(listPasswords.get(position).getNameApp().equals("Youtube")){
+        } else if (listPasswords.get(position).getNameApp().equalsIgnoreCase("Youtube")) {
             holder.imageView.setImageResource(R.drawable.youtube);
-        } else if(listPasswords.get(position).getNameApp().equals("Prime Video")){
+        } else if (listPasswords.get(position).getNameApp().equalsIgnoreCase("Prime Video")) {
             holder.imageView.setImageResource(R.drawable.primevideo);
-        } else if(listPasswords.get(position).getNameApp().equals("Facebook")){
+        } else if (listPasswords.get(position).getNameApp().equalsIgnoreCase("Facebook")) {
             holder.imageView.setImageResource(R.drawable.facebook);
-        } else if(listPasswords.get(position).getNameApp().equals("Twitter")){
+        } else if (listPasswords.get(position).getNameApp().equalsIgnoreCase("Twitter")) {
             holder.imageView.setImageResource(R.drawable.twitter);
-        } else if(listPasswords.get(position).getNameApp().equals("Snapchat")){
+        } else if (listPasswords.get(position).getNameApp().equalsIgnoreCase("Snapchat")) {
             holder.imageView.setImageResource(R.drawable.snapchat);
+        } else if (listPasswords.get(position).getNameApp().equalsIgnoreCase("Instagram")) {
+            holder.imageView.setImageResource(R.drawable.instagram);
         }
     }
 

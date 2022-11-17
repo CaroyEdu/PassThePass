@@ -1,7 +1,5 @@
 package com.example.passthepass;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -11,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CreatePasswordShared extends AppCompatActivity {
 
@@ -22,20 +22,20 @@ public class CreatePasswordShared extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_password_shared);
 
-        if(SaveSharedPreference.getUser()==null){
+        if (SaveSharedPreference.getUser() == null) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-        }else{
+        } else {
             user = SaveSharedPreference.getUser();
         }
     }
 
-    public void onClick(View view){
+    public void onClick(View view) {
         addPasswordInDatabase();
     }
 
     @SuppressLint("Range")
-    private void addPasswordInDatabase(){
+    private void addPasswordInDatabase() {
         SQLiteDatabase db = new DBHelper(this).getWritableDatabase();
 
         editTextAppNameShared = findViewById(R.id.editTextPersonNameShared);
@@ -57,11 +57,11 @@ public class CreatePasswordShared extends AppCompatActivity {
             cursor.close();
         }
 
-        if(idUser.equals(String.valueOf(user.getId()))){
+        if (idUser.equals(String.valueOf(user.getId()))) {
             Toast.makeText(this, R.string.create_application_failed_not_your_email, Toast.LENGTH_SHORT).show();
-        } else if(editTextAppNameShared.getText().toString().isEmpty() || editTextAppPasswordShare.getText().toString().isEmpty()){
+        } else if (editTextAppNameShared.getText().toString().isEmpty() || editTextAppPasswordShare.getText().toString().isEmpty()) {
             Toast.makeText(this, R.string.create_application_failed_required, Toast.LENGTH_SHORT).show();
-        } else if(!idUser.equals("")) {
+        } else if (!idUser.equals("")) {
             ContentValues values = new ContentValues();
             values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_APP, editTextAppNameShared.getText().toString());
             values.put(DBContract.PasswordEntry.COLUMN_PASSWORD_PASSWORD, editTextAppPasswordShare.getText().toString());
@@ -80,8 +80,7 @@ public class CreatePasswordShared extends AppCompatActivity {
             Toast.makeText(this, R.string.create_application_succes, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, PTPHome.class);
             startActivity(intent);
-        }
-        else{
+        } else {
             Toast.makeText(this, R.string.create_application_failed_user_not_found, Toast.LENGTH_SHORT).show();
         }
     }

@@ -1,7 +1,6 @@
 package com.example.passthepass;
 
-public class SaveSharedPreference
-{
+public class SaveSharedPreference {
     static User user = null;
 
     public static User getUser() {

@@ -20,10 +20,10 @@ public class CreatePassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_password);
 
-        if(SaveSharedPreference.getUser()==null){
+        if (SaveSharedPreference.getUser() == null) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-        }else{
+        } else {
             user = SaveSharedPreference.getUser();
         }
     }
@@ -38,7 +38,7 @@ public class CreatePassword extends AppCompatActivity {
         editTextAppName = findViewById(R.id.editAppName);
         editTextAppPassword = findViewById(R.id.editPassword);
 
-        if(editTextAppName.getText().toString().isEmpty() || editTextAppPassword.getText().toString().isEmpty()) {
+        if (editTextAppName.getText().toString().isEmpty() || editTextAppPassword.getText().toString().isEmpty()) {
             Toast.makeText(this, R.string.create_application_failed_required, Toast.LENGTH_SHORT).show();
         } else {
             ContentValues values = new ContentValues();
